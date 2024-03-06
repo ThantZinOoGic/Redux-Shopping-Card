@@ -6,12 +6,18 @@ import { useDispatch, useSelector } from "react-redux";
 import Notification from "./components/Notification";
 import { uiActions } from "./store/ui-slice";
 
+let firstRender = true;
 function App() {
    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
    const notification = useSelector(state => state.ui.notification);
    const cart = useSelector(state => state.cart);
    const dispatch = useDispatch();
    useEffect(() => {
+    if(firstRender)
+    {
+      firstRender = false;
+      return;
+    }
     const sendRequest = async () => {
       dispatch(uiActions.showNotification({
         open : true,
