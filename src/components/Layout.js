@@ -12,7 +12,6 @@ const Layout = () => {
   itemsList.forEach(item =>{
     total +=item.totalPrice;
   });
-  console.log(showCart);
 
   return (
     <React.Fragment>
